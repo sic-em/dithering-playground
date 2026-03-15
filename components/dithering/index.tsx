@@ -4,6 +4,7 @@ import { useDialKit } from "dialkit"
 import { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import { ActionButtons } from "@/components/dithering/action-buttons"
 import { useInfiniteCanvas } from "@/hooks/use-infinite-canvas"
+import { useMenuSounds } from "@/hooks/use-menu-sounds"
 import { BAYER_MATRICES } from "@/lib/dithering/constants"
 import { hexToRgb } from "@/lib/dithering/utils"
 import { preprocess, blur } from "@/lib/dithering/preprocess"
@@ -28,6 +29,8 @@ export function DitheringPlayground() {
     onMouseMove,
     onMouseUp,
   } = useInfiniteCanvas(0.75, -80, -80)
+
+  useMenuSounds()
 
   const fileInputRef = useRef<HTMLInputElement>(null)
 
